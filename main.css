@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border-box makes the child container with borders fit in nicely inside its parent container */
+    /* box-sizing: border-box; */
+}
+
+
+@font-face {
+    font-family: peich;
+    src: url(./assets/reich.ttf);
+}
+
+body {
+    font-family: peich, Verdana;
+}
+
+.game-title {
+    /* font-size: 4vw; */
+    /* z-index: -1; */
+    position: absolute;
+    left: 15.5%;
+    top: 3%;
+    line-height: 0.7;
+    /* used to make elements unselectable & unclickable for Mozilla, Chrome & Opera */
+    -moz-user-select: none; 
+    user-select: none; 
+    pointer-events: none;
+}
+
+#title1 {
+    user-select: none;
+    font-size: 4vw;
+    color: rgb(255, 170, 170);
+}
+
+#title2 {
+    font-size: 4vw;
+    color: rgb(255, 255, 118);
+}
+
+#title3 {
+    font-size: 4vw;
+    color: rgb(165, 165, 254);
+}
+
+img {
+    height: 30%;
+    width: 15%;
+    position: absolute;
+    top: 2%;
+    filter: grayscale(0.5);
+    /* used to make elements unselectable & unclickable for Mozilla, Chrome & Opera */
+    -moz-user-select: none; 
+    user-select: none; 
+    pointer-events: none;
+}
+
+.frame {
+    width: 100%;
+    height: 100%;
+    background-image: url(./assets/darkforest.jpg);
+    background-size: cover;
+    background-position: center center; 
+    background-attachment: fixed;
+    position: absolute;
+    overflow: hidden;
+}
+
+#timer-title {
+    position: absolute;
+    font-size: 3.5vw;
+    width: 10vw;
+    text-align: center;
+    background-color: rgb(176, 176, 44);
+    color: rgb(255, 233, 255);
+    border: 1.2vw solid rgb(107, 107, 0);
+    top: 8%;
+    left: 25%;
+    padding: 1vw 1vw 0 1vw;
+    border-radius: 3vw;
+    /* used to make elements unselectable & unclickable for Mozilla, Chrome & Opera */
+    -moz-user-select: none; 
+    user-select: none; 
+}
+
+#score-title {
+    position: absolute;
+    background-color: peru;
+    color: rgb(198, 255, 198);
+    border: 1.2vw solid brown;
+    font-size: 3.5vw;
+    top: 8%;
+    right: 27%;
+    padding: 1vw 1vw 0 1vw;
+    border-radius: 3vw;
+    /* used to make elements unselectable & unclickable for Mozilla, Chrome & Opera */
+    -moz-user-select: none; 
+    user-select: none; 
+}
+
+#timer {
+    position: absolute;
+    display: none;
+    width: 10vw;
+    text-align: center;
+    font-size: 6vw;
+    color: rgb(221, 221, 255);
+    border:1.5vw solid rgb(57, 57, 175);
+    background-color: rgb(124, 124, 255);
+    /* below is the timer's red color profile */
+    /* color: rgb(245, 155, 155);
+    background-color: rgb(255, 0, 0);
+    border: 20px solid rgb(133, 2, 2); */
+    border-radius: 4vw;
+    padding: 1vw 1vw 0 1vw;
+    top: 3%;
+    right: 43%;
+    /* used to make elements unselectable & unclickable for Mozilla, Chrome & Opera */
+    -moz-user-select: none; 
+    user-select: none; 
+}
+
+.score {
+    position: absolute;
+    display: none;
+    color: rgb(237, 237, 177);
+    border: 1.5vw solid rgb(170, 80, 95);
+    background-color: rgb(216, 114, 129);
+    font-size: 6vw;
+    width: 10vw;
+    text-align: center;
+    top: 3%;
+    right: 7%;
+    padding: 1vw 1vw 0 1vw;
+    border-radius: 4vw;
+    /* used to make elements unselectable & unclickable for Mozilla, Chrome & Opera */
+    -moz-user-select: none; 
+    user-select: none; 
+}
+
+.sniping-field {
+    width: 60%;
+    height: 70%;
+    position: relative;
+    left: 25%;
+    top: 25%;
+    /* .snipingField is always on top layer for interaction */
+    /* z-index: 2;
+    display: flex;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.bush {
+    position: relative;
+    overflow: hidden;
+    /* flex: 1 0 25%; */
+    /* to align .bush with .snipingField instead of .frame */
+    /* setting overflow to hidden will hide the monster
+    without its lower part sticking out */
+}
+
+/* serves as an additional layer to put the bush in*/
+.bush:after {
+    content: '';
+    display: block;
+    background-image: url(./assets/bush2.png);
+    background-repeat: no-repeat;
+    background-size: contain;   
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;    
+    bottom: -64%;
+}
+
+.monster {
+    position: absolute;
+    background-image: url(./assets/monster.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    /* setting top: 100% will make the monster totally disappear,
+    top: 0 to appear */
+    top: 100%;
+    /* transition gives better animation than instantaneous */
+    transition: .300s;
+}
+
+/* set the .appear in .bush, targeting the .monster */
+/* when javascript adds .appear, it triggers the selector below */
+.bush.appear .monster {
+    /* setting top: 0 will make the monster appear,
+    top: 100% to hide  */
+    top: 0;
+}
+
+/* mobile responsiveness & landscape orientation for tablet/phone with 810px width and below */
+@media screen and (min-width: 320px) and (max-width: 810px) and (orientation: portrait) {
+    html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      height: 100vw;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+
+    #title1 {
+        font-size: 4vh;
+    }
+    
+    #title2 {
+        font-size: 4vh;
+    }
+    
+    #title3 {
+        font-size: 4vh;
+    }
+    
+    #timer-title {
+        font-size: 3.5vh;
+        width: 8vh;
+        text-align: center;
+        padding: 1vh 1vh 0 1vh;
+        border-radius: 3vh;
+    }
+    
+    #score-title {
+        font-size: 3.5vh;
+        padding: 1vh 1vh 0 1vh;
+        border-radius: 3vh;
+    }
+    
+    #timer {
+        width: 13vh;
+        text-align: center;
+        font-size: 6vh;
+        border:1.5vh solid rgb(57, 57, 175);
+        border-radius: 4vh;
+        padding: 1vh 1vh 0 1vh;
+    }
+    
+    .score {
+        border: 1.5vh solid rgb(170, 80, 95);
+        font-size: 6vh;
+        width: 13vh;
+        padding: 1vh 1vh 0 1vh;
+        border-radius: 4vh;
+    }
+
+    .sniping-field {
+        width: 60%;
+        height: 70%;
+        position: relative;
+        left: 25%;
+        top: 0;
+        /* .snipingField is always on top layer for interaction */
+        /* z-index: 2;
+        display: flex;
+        flex-wrap: wrap; */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+}

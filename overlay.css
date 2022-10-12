@@ -1,0 +1,292 @@
+#overlay-greeting {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    width: 50%;
+    height: 70%;
+    left: 21%;
+    top: 4%;
+    border: 2vw solid rgb(140, 169, 96);
+    z-index: 3;
+    background: rgb(82, 98, 57);
+    background-image: url(./assets/furryMonster-overlay.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    border-radius: 5vw;
+    font-size: 4vw;
+    text-align: center;
+    color: rgb(254, 220, 157);
+}
+
+/* greetings UI dialogue animates when clicked */
+#overlay-greeting:active { 
+    transform: scale(0.9);
+    transition: 0.1s;
+}
+
+.welcome-greeting {
+    font-size: 4vw;
+    padding: 120px 30px 30px 60px;
+    color: rgb(254, 220, 157);
+}
+
+.greet1, .greet2, .greet3 {
+    font-size: 6vw;
+}
+
+.greet1 {
+    color: rgb(255, 170, 170);
+}
+
+.greet2 {
+    color: rgb(255, 255, 118);
+}
+
+.greet3 {
+    color: rgb(165, 165, 254);
+}
+
+#overlay-menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    width: 30%;
+    height: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2vw solid rgb(142, 92, 43);
+    z-index: 3;
+    background: rgb(186, 128, 70);
+    border-radius: 7vw;
+    color: rgb(254, 220, 157);
+    font-size: 4vw;
+}
+
+#overlay-options {
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+    position: absolute;
+    width: 20%;
+    height: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2vw solid rgb(142, 92, 43);
+    z-index: 3;
+    background: rgb(186, 128, 70);
+    border-radius: 7vw;
+    color: rgb(254, 220, 157);
+    font-size: 1.5vw;
+    padding-left: 7vw;
+    /* line-height: 1; */
+}
+
+span {
+    color: rgb(255, 200, 75);
+}
+
+.options-radio {
+    width: 2vw;
+    height: 2vw;
+    padding-left: 1vw;
+    accent-color: rgb(55, 145, 55);
+    line-height: 0.5;
+}
+
+.options-radio:hover {
+    cursor: url('./assets/gloveCursor.png'), auto;
+    font-size: 150%;
+    transform: scale(1.3);  /*make the radio bigger on hover*/
+    transition: 0.11s;
+}
+
+.options-radio:active {
+    cursor: url('./assets/gloveCursor.png'), auto;
+}
+
+label:hover {
+    color: rgb(201, 223, 168);
+}
+
+#overlay-dialogue {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    position: absolute;
+    overflow: hidden;
+    color: rgb(190, 255, 190);
+    border: 1.5vw solid rgb(145, 91, 37);
+    background-color: peru;
+    min-width: 8vw;
+    min-height: auto;
+    left: 50%;
+    top: 50%;
+    /* transform: translate(-50%, -50%);  */
+    z-index: 3;
+    border-radius: 4vw;
+    font-size: 4vw;
+    padding: 0 2vw;
+}
+
+#overlay-about {
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(136, 136, 52);
+    color: rgb(177, 211, 211);
+    border: 1.4vw solid rgb(107, 107, 0);
+    /* width: 40%;
+    height: 80%; */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 5vw;
+    font-size: 2vw;
+    padding: 4vw 4vw;
+    text-align: center;
+    flex-direction: column;
+        -moz-user-select: none; 
+    user-select: none;
+}
+
+#overlay-quit {
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(176, 176, 44);
+    color: rgb(255, 233, 255);
+    border: 1.5vw solid rgb(107, 107, 0);
+    min-width: 40%;
+    min-height: 30%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 5vw;
+    font-size: 3vw;
+    padding: 4vw 4vw;
+    text-align: center;
+    flex-direction: column;
+}
+
+#overlay-gameover {
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(176, 176, 44);
+    color: rgb(192, 255, 192);
+    border: 2vw solid rgb(107, 107, 0);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 7vw;
+    font-size: 4vw;
+    padding: 10vw 5vw;
+    text-align: center;
+    flex-direction: column;
+    line-height: 0.7;    
+}
+
+#end-score {
+    color: rgb(255, 225, 225);
+}
+
+/* mobile responsiveness & landscape orientation for tablet/phone with 810px width and below */
+@media screen and (min-width: 320px) and (max-width: 810px) and (orientation: portrait) {
+    html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      height: 100vw;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+
+    #overlay-greeting {
+        border: 2vh solid rgb(140, 169, 96);
+        border-radius: 5vh;
+        font-size: 4vh;
+    }
+    
+    .welcome-greeting {
+        font-size: 4vh;
+        padding: 120px 30px 30px 60px;
+    }
+    
+    .greet1, .greet2, .greet3 {
+        font-size: 6vh;
+    }
+    
+    #overlay-menu {
+        border: 2vh solid rgb(142, 92, 43);
+        border-radius: 7vh;
+        font-size: 4vh;
+    }
+    
+    #overlay-options {
+        border: 2vh solid rgb(142, 92, 43);
+        border-radius: 7vh;
+        font-size: 1.5vh;
+        padding-left: 7vh;
+    }
+    
+    .options-radio {
+        width: 2vh;
+        height: 2vh;
+        padding-left: 1vh;
+    }
+    
+    #overlay-dialogue {
+        border: 1.5vh solid rgb(145, 91, 37);
+        min-width: 10vh;
+        min-height: 5vw;
+        border-radius: 4vh;
+        font-size: 4vh;
+        padding: 1vw 1vw;
+    }
+    
+    #overlay-about {
+        border: 1.4vh solid rgb(107, 107, 0);
+        border-radius: 5vh;
+        font-size: 2vh;
+        padding: 2vh 2vh;
+    }
+    
+    #overlay-quit {
+        border: 1.5vh solid rgb(107, 107, 0);
+        border-radius: 5vh;
+        font-size: 3vh;
+        padding: 4vh 4vh;
+    }
+    
+    #overlay-gameover {
+        border: 2vh solid rgb(107, 107, 0);
+        border-radius: 7vh;
+        font-size: 4vh;
+        padding: 10vh 5vh;    }
+}

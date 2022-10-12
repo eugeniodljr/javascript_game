@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snipe-'Em-Down Game</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon32.png">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./overlay.css">
+    <link rel="stylesheet" href="./buttons.css">
+    <script type="text/javascript" src="./main.js" defer></script>    
+    <script type="text/javascript" src="./listener-functions.js" defer></script>
+</head>
+<div id="app-container">
+    <body>
+        <div class="frame">
+            <div class="game-title">
+                <div id="title1">SNIPE</div>
+                <div id="title2">'EM</div>
+                <div id="title3">DOWN</div>
+            </div>
+
+            <div class="logo">
+                <img src="./assets/furryMonster-overlay.png" alt="game logo.png">
+            </div>
+            <span id="score-title">SCORE</span>
+            <div class="score"></div>
+            <span id="timer-title">TIME</span>
+            <div id="timer"></div>        
+            <button class="button" id="fullscreen-toggle">FULL<br/>SCREEN</button>
+            
+            <div id="overlay-greeting">
+                <div class="welcome-greeting">               
+                    WELCOME TO <br> 
+                    <span class="greet1">SNIPE</span>
+                    <span class="greet2">-'EM-</span>
+                    <span class="greet3">DOWN!</span>
+                    <br>
+                    <br>
+                    <span>Click the mouse once to play</span>
+                </div>
+            </div>
+
+            <div id="overlay-menu">
+                <button class="button button-play">PLAY</button>
+                <button class="button button-options">OPTIONS</button>
+                <button class="button button-about">ABOUT</button>
+                <button class="button button-quit1">QUIT</button>
+            </div>
+
+            <div id="overlay-dialogue"></div>
+
+            <div id="overlay-options">
+                <div><span>DIFFICULTY<span></div>
+                <div>
+                    <input class="options-radio" type="radio" id="difficulty-normal" name="difficulty" value="normal">
+                    <label class="options-radio" for="difficulty-normal">NORMAL</label>
+                </div>
+                <div>
+                    <input class="options-radio" type="radio" id="difficulty-abnormal" name="difficulty" value="abnormal">
+                    <label class="options-radio" for="difficulty-abnormal">ABNORMAL</label>
+                </div>
+
+                <div><span>TIME LIMIT<span></div>
+                <div>
+                    <input class="options-radio" type="radio" id="time-limit-25" name="time-limit" value="25">
+                    <label class="options-radio" for="time-limit-25">25 SECONDS</label>
+                </div>
+                <div>
+                    <input class="options-radio" type="radio" id="time-limit-35" name="time-limit" value="35">
+                    <label class="options-radio" for="time-limit-35">35 SECONDS</label>
+                </div>
+
+                <div><span>CROSSHAIR<span></div>
+                <div>
+                    <input class="options-radio" type="radio" id="red-dot" name="crosshair" value="red-dot">
+                    <label class="options-radio" for="red-dot">RED DOT</label>
+                </div>
+                <div>
+                    <input class="options-radio" type="radio" id="green" name="crosshair" value="green">
+                    <label class="options-radio" for="green">GREEN</label>
+                </div>
+                <div>
+                    <input class="options-radio" type="radio" id="red" name="crosshair" value="red">
+                    <label class="options-radio" for="red">RED</label>
+                </div>   
+                <div>
+                    <input class="options-radio" type="radio" id="predator" name="crosshair" value="predator">
+                    <label class="options-radio" for="predator">PREDATOR</label>
+                </div>   
+            
+                <div><span>DAMAGE EFFECT<span></div>
+                <div>
+                    <input class="options-radio" type="radio" id="blood-splat" name="damage-effect" value="blood-splat">
+                    <label class="options-radio" for="blood-splat">BLOOD SPLAT</label>
+                </div>
+                <div>
+                    <input class="options-radio" type="radio" id="smoke-poof" name="damage-effect" value="smoke-poof">
+                    <label class="options-radio" for="smoke-poof">SMOKE POOF</label>
+                </div>
+
+                <div class="button button-back3">BACK</div>
+            </div>
+
+            <div id="overlay-about">
+                <div>SNIPE-'EM-DOWN IS A SIMPLE POINT-AND-SHOOT GAME TO TEST YOUR REFLEX AND 
+                    SPEED WITH WHACK-A-MOLE AS ITS BASE. ENJOY THE GAME!
+                </div>
+                <br/>
+                <div>
+                    This is a javascript-based individual project required by Uplift Code Camp for Batch 10 students.
+                </div>
+                    <button class="button button-back1">BACK</button>
+            </div>
+
+            <div id="overlay-quit">
+                ARE YOU SURE YOU WANT TO QUIT?
+                <div class="button button-back2">BACK</div>
+                <button class="button button-quit2">QUIT</button>
+            </div>
+
+            <div id="overlay-gameover">
+                <div>GAME OVER!</div><div> YOUR SCORE IS:</div>
+                <div id="end-score"></div>
+                <div>CLICK THE MOUSE ONCE TO CONTINUE</div>
+            </div>
+
+            <div class="sniping-field">
+                <div class="bush">
+                    <div class="monster monster1"></div>
+                </div>
+                <div class="bush">
+                    <div class="monster monster2"></div>
+                </div>
+                <div class="bush">
+                    <div class="monster monster3"></div>
+                </div>
+                <div class="bush">
+                    <div class="monster monster4"></div>
+                </div>
+                <div class="bush">
+                    <div class="monster monster5"></div>
+                </div>
+                <div class="bush">
+                    <div class="monster monster6"></div>
+                </div>
+                <div class="bush">
+                    <div class="monster monster7"></div>
+                </div>
+                <div class="bush">
+                    <div class="monster monster8"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Note: The rest of the scripts are placed here intently
+            instead of placing them inside the head tags with defer 
+            attributes, otherwise the game will encounter a null or
+            undefinded function error-->
+        <script type="text/javascript" src="./overlay-functions.js"></script>
+        <script type="text/javascript" src="./audio-functions.js"></script>
+        <script type="text/javascript" src="./animation-functions.js"></script>
+        <script type="text/javascript" src="./customize-functions.js"></script>
+        <script type="text/javascript" src="./time-score-functions.js"></script>
+    </body>
+</div>
+</html>
